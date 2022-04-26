@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MyGym2</string>
+    <string name="about_text">Application for tracking sports activities by</string>
+    <string name="btn_description">\?</string>
+    <string name="add_excercise">+</string>
+    <string name="excercise">Exercise</string>
+    <string name="name_exercise">Name of exercise</string>
+    <string name="save_button">OK</string>
+    <string name="make_photo">Add photo</string>
+    <string name="photoplace">photoplace</string>
+    <string name="description_exercise">Description of exercise</string>
+    <string name="statistic">Statistic</string>
+    <string name="about">About App</string>
+    <string name="add_exercise">Add Exercise</string>
+    <string name="http_mamzin_ru">http://mamzin.ru/</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

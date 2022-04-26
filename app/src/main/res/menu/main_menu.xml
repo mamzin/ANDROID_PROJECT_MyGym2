@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_add_category"
+        android:icon="@drawable/addmenuicon"
+        android:title="@string/add_exercise"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_statistic"
+        android:icon="@drawable/statisticmenuicon"
+        android:title="@string/statistic"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@drawable/aboutmenuicon"
+        android:title="@string/about"
+        app:showAsAction="never" />
+</menu>
