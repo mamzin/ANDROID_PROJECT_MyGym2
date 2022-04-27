@@ -6,18 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import ru.mamzin.mygym2.model.Exercise
+import ru.mamzin.mygym2.model.Recurrence
 
-@Database(entities = [Exercise::class], version = 1)
+@Database(entities = [Exercise::class, Recurrence::class], version = 1)
 @TypeConverters(Converters::class)
-abstract class ExerciseDataBase : RoomDatabase() {
+abstract class AppDataBase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
 
     companion object {
         @Volatile
-        private var INSTANCE: ExerciseDataBase? = null
+        private var INSTANCE: AppDataBase? = null
 
-        fun getDatabase(context: Context): ExerciseDataBase {
+        fun getDatabase(context: Context): AppDataBase {
             if (INSTANCE == null) {
                 synchronized(this) {
                     INSTANCE = buildDatabase(context)
@@ -26,10 +27,10 @@ abstract class ExerciseDataBase : RoomDatabase() {
             return INSTANCE!!
         }
 
-        private fun buildDatabase(context: Context): ExerciseDataBase {
+        private fun buildDatabase(context: Context): AppDataBase {
             return Room.databaseBuilder(
                 context.applicationContext,
-                ExerciseDataBase::class.java,
+                AppDataBase::class.java,
                 "database"
             ).build()
         }

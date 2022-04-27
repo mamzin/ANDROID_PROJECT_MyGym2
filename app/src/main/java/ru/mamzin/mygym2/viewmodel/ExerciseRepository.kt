@@ -1,4 +1,4 @@
-package ru.mamzin.mygym2
+package ru.mamzin.mygym2.viewmodel
 
 import androidx.lifecycle.LiveData
 import ru.mamzin.mygym2.database.ExerciseDao

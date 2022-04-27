@@ -1,4 +1,4 @@
-package ru.mamzin.mygym2
+package ru.mamzin.mygym2.model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,9 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ru.mamzin.mygym2.database.ExerciseDataBase
-import ru.mamzin.mygym2.model.Exercise
-import java.util.*
+import ru.mamzin.mygym2.viewmodel.ExerciseRepository
+import ru.mamzin.mygym2.database.AppDataBase
 
 class ExerciseViewModel (application: Application): AndroidViewModel(application) {
 
@@ -16,7 +15,7 @@ class ExerciseViewModel (application: Application): AndroidViewModel(application
     private val repository: ExerciseRepository
 
     init {
-        val dao = ExerciseDataBase.getDatabase(application).exerciseDao()
+        val dao = AppDataBase.getDatabase(application).exerciseDao()
         repository = ExerciseRepository(dao)
         allExercise = repository.allExercise
     }

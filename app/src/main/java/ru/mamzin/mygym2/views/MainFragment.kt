@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.mamzin.mygym2.ExerciseViewModel
+import ru.mamzin.mygym2.model.ExerciseViewModel
 import ru.mamzin.mygym2.R
 import ru.mamzin.mygym2.model.DataAdapter
 import ru.mamzin.mygym2.model.Exercise
