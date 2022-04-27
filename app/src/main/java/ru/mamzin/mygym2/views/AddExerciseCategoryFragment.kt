@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import ru.mamzin.mygym2.model.ExerciseViewModel
 import ru.mamzin.mygym2.R
 import ru.mamzin.mygym2.model.Exercise
@@ -95,8 +96,9 @@ class AddExerciseCategoryFragment : Fragment() {
                     iv_photo.drawable.toBitmap()
                 )
                 viewmodel.addExercise(exercise)
-                Toast.makeText(requireContext(), "Exercise category ${et_name_on_add.text.toString()} saved", Toast.LENGTH_SHORT)
-                    .show()
+                DynamicToast
+                    .makeSuccess(requireContext(), "Exercise category ${et_name_on_add.text.toString()} saved", Toast.LENGTH_SHORT)
+                    .show();
                 pressedBackBtn()
             }
         }

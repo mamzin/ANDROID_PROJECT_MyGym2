@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import ru.mamzin.mygym2.model.ExerciseViewModel
 import ru.mamzin.mygym2.R
 import ru.mamzin.mygym2.model.Exercise
@@ -102,8 +103,9 @@ class DescriptionExerciseFragment : Fragment() {
                 .setPositiveButton("Yes", DialogInterface.OnClickListener {
                         dialog, id ->
                     viewmodel.deleteExercise(exercise)
-                    Toast.makeText(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} deleted", Toast.LENGTH_SHORT)
-                        .show()
+                    DynamicToast
+                        .makeSuccess(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} deleted", Toast.LENGTH_SHORT)
+                        .show();
                     pressedBackBtn()
                 })
                 .setNegativeButton("No", DialogInterface.OnClickListener {
@@ -137,8 +139,9 @@ class DescriptionExerciseFragment : Fragment() {
                     .setPositiveButton("Yes", DialogInterface.OnClickListener {
                             dialog, id ->
                         viewmodel.updateExercise(exercise)
-                        Toast.makeText(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} saved", Toast.LENGTH_SHORT)
-                            .show()
+                        DynamicToast
+                            .makeSuccess(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} updated", Toast.LENGTH_SHORT)
+                            .show();
                         pressedBackBtn()
                     })
                     .setNegativeButton("No", DialogInterface.OnClickListener {
