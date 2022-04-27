@@ -97,6 +97,7 @@ class DescriptionExerciseFragment : Fragment() {
             )
             val dialogBuilder = AlertDialog.Builder(requireContext())
             dialogBuilder.setMessage("Are you sure you want to delete a category?")
+                .setIcon(R.drawable.deletemenuicon)
                 .setCancelable(false)
                 .setPositiveButton("Yes", DialogInterface.OnClickListener {
                         dialog, id ->
@@ -129,10 +130,23 @@ class DescriptionExerciseFragment : Fragment() {
                     et_description_on_edit.text.toString(),
                     iv_photo_on_edit.drawable.toBitmap()
                 )
-                viewmodel.updateExercise(exercise)
-                Toast.makeText(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} saved", Toast.LENGTH_SHORT)
-                    .show()
-                pressedBackBtn()
+                val dialogBuilder = AlertDialog.Builder(requireContext())
+                dialogBuilder.setMessage("Are you sure you want to update a category?")
+                    .setIcon(R.drawable.editmenuicon)
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", DialogInterface.OnClickListener {
+                            dialog, id ->
+                        viewmodel.updateExercise(exercise)
+                        Toast.makeText(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} saved", Toast.LENGTH_SHORT)
+                            .show()
+                        pressedBackBtn()
+                    })
+                    .setNegativeButton("No", DialogInterface.OnClickListener {
+                            dialog, id -> dialog.cancel()
+                    })
+                val alert = dialogBuilder.create()
+                alert.setTitle("Updating an exercise category")
+                alert.show()
             }
         }
         return root
