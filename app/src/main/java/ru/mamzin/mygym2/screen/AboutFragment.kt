@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import ru.mamzin.mygym2.R
 
 
@@ -23,6 +24,8 @@ class AboutFragment : Fragment() {
                     .commit()
             }
         })
+
+        (activity as AppCompatActivity).supportActionBar?.title = "MyGym - About App"
     }
 
     override fun onCreateView(

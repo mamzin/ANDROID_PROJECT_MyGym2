@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import ru.mamzin.mygym2.databinding.ActivityMainBinding
 import ru.mamzin.mygym2.screen.AboutFragment
-import ru.mamzin.mygym2.screen.AddExerciseFragment
+import ru.mamzin.mygym2.screen.AddExerciseCategoryFragment
 import ru.mamzin.mygym2.screen.MainFragment
 import ru.mamzin.mygym2.screen.StatisticFragment
 
@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val homeFragment = MainFragment()
+    lateinit var viewmodel: ExerciseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     private fun loadFragment(itemId: Int) {
         val tag = itemId.toString()
         var fragment = supportFragmentManager.findFragmentByTag(tag) ?: when (itemId) {
-            R.id.menu_add_category -> { AddExerciseFragment.newInstance() }
+            R.id.menu_add_category -> { AddExerciseCategoryFragment.newInstance() }
             R.id.menu_statistic -> { StatisticFragment.newInstance() }
             R.id.menu_about -> { AboutFragment.newInstance() }
             else -> { null }

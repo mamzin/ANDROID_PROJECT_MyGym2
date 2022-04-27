@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import ru.mamzin.mygym2.R
 
 class StatisticFragment : Fragment() {
@@ -22,6 +23,8 @@ class StatisticFragment : Fragment() {
                     .commit()
             }
         })
+
+        (activity as AppCompatActivity).supportActionBar?.title = "MyGym - Statistic"
     }
 
     override fun onCreateView(

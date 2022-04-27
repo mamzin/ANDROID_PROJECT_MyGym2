@@ -5,15 +5,16 @@
     <string name="add_excercise">+</string>
     <string name="excercise">Exercise</string>
     <string name="name_exercise">Name of exercise</string>
-    <string name="save_button">OK</string>
+    <string name="save_button">Save exercise</string>
+    <string name="update_button">Update exercise</string>
+    <string name="delete_button">Delete exercise</string>
     <string name="make_photo">Add photo</string>
+    <string name="change_photo">Change photo</string>
     <string name="photoplace">photoplace</string>
     <string name="description_exercise">Description of exercise</string>
     <string name="statistic">Statistic</string>
     <string name="about">About App</string>
-    <string name="add_exercise">Add Exercise</string>
+    <string name="add_exercise">Add Exercise category</string>
     <string name="http_mamzin_ru">http://mamzin.ru/</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,5 +1,6 @@
 package ru.mamzin.mygym2.model
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.exercise_item.view.*
 import ru.mamzin.mygym2.R
 
-class DataAdapter(private val exerlist: MutableList<Exercise>,
+class DataAdapter(private val context: Context,
                   private val cellClickListener: CellClickListener) :
     RecyclerView.Adapter<DataAdapter.ViewHolder>() {
+
+    private  val exerlist = ArrayList<Exercise>()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = exerlist[position]
@@ -24,6 +27,12 @@ class DataAdapter(private val exerlist: MutableList<Exercise>,
         }
     }
 
+    fun updateList(newList: List<Exercise>){
+        exerlist.clear()
+        exerlist.addAll(newList)
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int {
         return exerlist.size
     }
@@ -34,9 +43,8 @@ class DataAdapter(private val exerlist: MutableList<Exercise>,
         return ViewHolder(view)
     }
 
-    class ViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
+    inner class ViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
         var tvname: TextView = itemLayoutView.findViewById(R.id.tv_exercise)
-
         fun bind(exercise: Exercise) {
             tvname.text = exercise.name
         }

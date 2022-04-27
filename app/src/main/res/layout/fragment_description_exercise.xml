@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".screen.AddExerciseCategoryFragment">
+    tools:context=".screen.DescriptionExerciseFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:padding="20dp">
 
             <EditText
-                android:id="@+id/et_name_on_add"
+                android:id="@+id/et_name_on_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
@@ -29,7 +29,7 @@
                 android:textColorHint="#757575" />
 
             <EditText
-                android:id="@+id/et_description_on_add"
+                android:id="@+id/et_description_on_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
@@ -40,13 +40,12 @@
                 android:textColorHint="#757575" />
 
             <View
-                android:id="@+id/divider_up"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider" />
 
             <ImageView
-                android:id="@+id/iv_photo"
+                android:id="@+id/iv_photo_on_edit"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
@@ -57,27 +56,37 @@
                 app:srcCompat="@drawable/iconcamera250" />
 
             <Button
-                android:id="@+id/btn_get_photo"
+                android:id="@+id/btn_get_photo_on_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/teal_700"
-                android:text="@string/make_photo"
+                android:text="@string/change_photo"
                 tools:ignore="TextContrastCheck" />
 
             <View
-                android:id="@+id/divider_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider" />
 
             <Button
-                android:id="@+id/btn_save_on_add"
+                android:id="@+id/btn_save_on_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/teal_700"
-                android:text="@string/save_button"
+                android:text="@string/update_button"
+                app:icon="@drawable/editmenuicon"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/btn_delete_exercise_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/teal_700"
+                android:text="@string/delete_button"
+                app:icon="@drawable/deletemenuicon"
                 tools:ignore="TextContrastCheck" />
 
         </LinearLayout>
