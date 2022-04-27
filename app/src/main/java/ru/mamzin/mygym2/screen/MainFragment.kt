@@ -59,11 +59,21 @@ class MainFragment : Fragment(), DataAdapter.CellClickListener {
         bundle.putString("description", exercise.description)
         bundle.putParcelable("photo", exercise.photo)
         parentFragmentManager.setFragmentResult("exercisedata", bundle)
-        requireActivity().supportFragmentManager.beginTransaction().replace(R.id.mainframelayout, DescriptionExerciseFragment.newInstance()).commit()
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.mainframelayout, DescriptionExerciseFragment.newInstance())
+            .commit()
     }
 
     override fun onAddClickListener(exercise: Exercise) {
-        Toast.makeText(requireContext(), "onAddClickListener", Toast.LENGTH_SHORT).show()
+        val bundle = Bundle()
+        bundle.putSerializable("id_add", exercise.id)
+        bundle.putString("name_add", exercise.name)
+        parentFragmentManager.setFragmentResult("exercise_add", bundle)
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.mainframelayout, AddExerciseFragment.newInstance())
+            .commit()
     }
 
 }

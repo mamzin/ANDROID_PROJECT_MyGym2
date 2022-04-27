@@ -1,6 +1,7 @@
 package ru.mamzin.mygym2.screen
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -94,10 +95,22 @@ class DescriptionExerciseFragment : Fragment() {
                 et_description_on_edit.text.toString(),
                 iv_photo_on_edit.drawable.toBitmap()
             )
-            viewmodel.deleteExercise(exercise)
-            Toast.makeText(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} deleted", Toast.LENGTH_SHORT)
-                .show()
-            pressedBackBtn()
+            val dialogBuilder = AlertDialog.Builder(requireContext())
+            dialogBuilder.setMessage("Are you sure you want to delete a category?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", DialogInterface.OnClickListener {
+                        dialog, id ->
+                    viewmodel.deleteExercise(exercise)
+                    Toast.makeText(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} deleted", Toast.LENGTH_SHORT)
+                        .show()
+                    pressedBackBtn()
+                })
+                .setNegativeButton("No", DialogInterface.OnClickListener {
+                        dialog, id -> dialog.cancel()
+                })
+            val alert = dialogBuilder.create()
+            alert.setTitle("Deleting an exercise category")
+            alert.show()
         }
 
         btn_save_on_edit.setOnClickListener {

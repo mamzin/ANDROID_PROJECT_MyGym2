@@ -51,7 +51,7 @@ class AddExerciseCategoryFragment : Fragment() {
                 pressedBackBtn()
             }
         })
-        (activity as AppCompatActivity).supportActionBar?.title = "MyGym - Add Exercise"
+        (activity as AppCompatActivity).supportActionBar?.title = "MyGym - Add Exercise Category"
     }
 
     fun pressedBackBtn() {
@@ -65,7 +65,7 @@ class AddExerciseCategoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_add_exercise, container, false)
+        val root = inflater.inflate(R.layout.fragment_add_exercise_category, container, false)
 
         btn_get_photo = root.findViewById(R.id.btn_get_photo)
         iv_photo = root.findViewById(R.id.iv_photo)
