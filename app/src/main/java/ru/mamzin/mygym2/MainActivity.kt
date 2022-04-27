@@ -6,10 +6,10 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import ru.mamzin.mygym2.databinding.ActivityMainBinding
-import ru.mamzin.mygym2.screen.AboutFragment
-import ru.mamzin.mygym2.screen.AddExerciseCategoryFragment
-import ru.mamzin.mygym2.screen.MainFragment
-import ru.mamzin.mygym2.screen.StatisticFragment
+import ru.mamzin.mygym2.views.AboutFragment
+import ru.mamzin.mygym2.views.AddExerciseCategoryFragment
+import ru.mamzin.mygym2.views.MainFragment
+import ru.mamzin.mygym2.views.StatisticFragment
 
 class MainActivity : AppCompatActivity() {
 

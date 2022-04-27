@@ -1,4 +1,4 @@
-package ru.mamzin.mygym2.screen
+package ru.mamzin.mygym2.views
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

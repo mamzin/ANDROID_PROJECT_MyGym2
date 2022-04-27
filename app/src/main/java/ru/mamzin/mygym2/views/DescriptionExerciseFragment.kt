@@ -1,4 +1,4 @@
-package ru.mamzin.mygym2.screen
+package ru.mamzin.mygym2.views
 
 import android.app.Activity
 import android.content.DialogInterface
