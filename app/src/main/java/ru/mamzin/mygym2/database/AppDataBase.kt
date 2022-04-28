@@ -14,6 +14,8 @@ abstract class AppDataBase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
 
+    abstract fun recurrenceDao(): RecurrenceDao
+
     companion object {
         @Volatile
         private var INSTANCE: AppDataBase? = null

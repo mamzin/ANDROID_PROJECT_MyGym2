@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".views.StatisticFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvStatistic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="statistic" />
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp" />
 
 </FrameLayout>

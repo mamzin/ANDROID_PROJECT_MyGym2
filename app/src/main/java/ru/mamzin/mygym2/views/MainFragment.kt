@@ -10,12 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.mamzin.mygym2.model.ExerciseViewModel
+import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import ru.mamzin.mygym2.R
-import ru.mamzin.mygym2.model.DataAdapter
+import ru.mamzin.mygym2.model.ExerciseDataAdapter
 import ru.mamzin.mygym2.model.Exercise
 
-class MainFragment : Fragment(), DataAdapter.CellClickListener {
+class MainFragment : Fragment(), ExerciseDataAdapter.CellClickListener {
 
     lateinit var rvData: RecyclerView
     val viewmodel: ExerciseViewModel by viewModels()
@@ -35,7 +35,7 @@ class MainFragment : Fragment(), DataAdapter.CellClickListener {
         rvData = root.findViewById(R.id.rvData)
         rvData.layoutManager = LinearLayoutManager(requireContext())
 
-        val rvAdapter = DataAdapter(requireContext(), this)
+        val rvAdapter = ExerciseDataAdapter(requireContext(), this)
         rvData.adapter = rvAdapter
         viewmodel.allExercise.observe(viewLifecycleOwner, Observer { list ->
             list?.let {

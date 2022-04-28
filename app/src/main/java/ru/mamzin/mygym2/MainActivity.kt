@@ -6,7 +6,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import ru.mamzin.mygym2.databinding.ActivityMainBinding
-import ru.mamzin.mygym2.model.ExerciseViewModel
+import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import ru.mamzin.mygym2.views.AboutFragment
 import ru.mamzin.mygym2.views.AddExerciseCategoryFragment
 import ru.mamzin.mygym2.views.MainFragment

@@ -18,8 +18,8 @@
     <string name="http_mamzin_ru">http://mamzin.ru/</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="number_of_approaches">Number of approaches</string>
-    <string name="number_of_iterations">Number of iterations</string>
+    <string name="number_of_sessions">Number of sessions:</string>
+    <string name="number_of_iterations">Number of iterations:</string>
     <string name="example_date">Date?</string>
 
 </resources>

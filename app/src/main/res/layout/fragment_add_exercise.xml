@@ -26,12 +26,12 @@
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/et_approaches"
+            android:id="@+id/et_session"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints=""
             android:ems="10"
-            android:hint="@string/number_of_approaches"
+            android:hint="@string/number_of_sessions"
             android:inputType="number"
             android:minHeight="48dp"
             android:textColorHint="#757575" />

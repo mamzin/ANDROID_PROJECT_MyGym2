@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.exercise_item.view.*
 import ru.mamzin.mygym2.R
 
-class DataAdapter(private val context: Context,
-                  private val cellClickListener: CellClickListener) :
-    RecyclerView.Adapter<DataAdapter.ViewHolder>() {
+class ExerciseDataAdapter(private val context: Context,
+                          private val cellClickListener: CellClickListener) :
+    RecyclerView.Adapter<ExerciseDataAdapter.ViewHolder>() {
 
     private  val exerlist = ArrayList<Exercise>()
 
@@ -45,6 +45,7 @@ class DataAdapter(private val context: Context,
 
     inner class ViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
         var tvname: TextView = itemLayoutView.findViewById(R.id.tv_exercise)
+
         fun bind(exercise: Exercise) {
             tvname.text = exercise.name
         }

@@ -1,4 +1,4 @@
-package ru.mamzin.mygym2.model
+package ru.mamzin.mygym2.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ru.mamzin.mygym2.viewmodel.ExerciseRepository
 import ru.mamzin.mygym2.database.AppDataBase
+import ru.mamzin.mygym2.model.Exercise
 
 class ExerciseViewModel (application: Application): AndroidViewModel(application) {
 

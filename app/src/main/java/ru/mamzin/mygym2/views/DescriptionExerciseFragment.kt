@@ -21,7 +21,7 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
-import ru.mamzin.mygym2.model.ExerciseViewModel
+import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import ru.mamzin.mygym2.R
 import ru.mamzin.mygym2.model.Exercise
 import java.util.*
