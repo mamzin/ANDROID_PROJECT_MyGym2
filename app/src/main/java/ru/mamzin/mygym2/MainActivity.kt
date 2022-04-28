@@ -40,9 +40,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_add_category -> {loadFragment(item.itemId)}
-            R.id.menu_statistic -> {loadFragment(item.itemId)}
-            R.id.menu_about -> {loadFragment(item.itemId)}
+            R.id.menu_home -> {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.mainframelayout, homeFragment)
+                    .commit()
+            }
+            R.id.menu_add_category -> {
+                loadFragment(item.itemId)
+            }
+            R.id.menu_statistic -> {
+                loadFragment(item.itemId)
+            }
+            R.id.menu_about -> {
+                loadFragment(item.itemId)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -50,10 +62,18 @@ class MainActivity : AppCompatActivity() {
     private fun loadFragment(itemId: Int) {
         val tag = itemId.toString()
         var fragment = supportFragmentManager.findFragmentByTag(tag) ?: when (itemId) {
-            R.id.menu_add_category -> { AddExerciseCategoryFragment.newInstance() }
-            R.id.menu_statistic -> { StatisticFragment.newInstance() }
-            R.id.menu_about -> { AboutFragment.newInstance() }
-            else -> { null }
+            R.id.menu_add_category -> {
+                AddExerciseCategoryFragment.newInstance()
+            }
+            R.id.menu_statistic -> {
+                StatisticFragment.newInstance()
+            }
+            R.id.menu_about -> {
+                AboutFragment.newInstance()
+            }
+            else -> {
+                null
+            }
         }
         if (fragment != null) {
             supportFragmentManager

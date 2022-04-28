@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/about_text"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"

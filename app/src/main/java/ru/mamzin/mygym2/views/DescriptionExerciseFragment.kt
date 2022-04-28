@@ -21,9 +21,9 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
-import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import ru.mamzin.mygym2.R
 import ru.mamzin.mygym2.model.Exercise
+import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import java.util.*
 
 class DescriptionExerciseFragment : Fragment() {
@@ -54,7 +54,8 @@ class DescriptionExerciseFragment : Fragment() {
                 pressedBackBtn()
             }
         })
-        (activity as AppCompatActivity).supportActionBar?.title = "MyGym - About of Exercise category"
+        (activity as AppCompatActivity).supportActionBar?.title =
+            "MyGym - About of Exercise category"
     }
 
     private fun pressedBackBtn() {
@@ -100,16 +101,18 @@ class DescriptionExerciseFragment : Fragment() {
             dialogBuilder.setMessage("Are you sure you want to delete a category?")
                 .setIcon(R.drawable.deletemenuicon)
                 .setCancelable(false)
-                .setPositiveButton("Yes", DialogInterface.OnClickListener {
-                        dialog, id ->
+                .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, id ->
                     viewmodel.deleteExercise(exercise)
                     DynamicToast
-                        .makeSuccess(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} deleted", Toast.LENGTH_SHORT)
-                        .show();
+                        .makeSuccess(
+                            requireContext(),
+                            "Exercise category ${et_name_on_edit.text} deleted",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     pressedBackBtn()
                 })
-                .setNegativeButton("No", DialogInterface.OnClickListener {
-                        dialog, id -> dialog.cancel()
+                .setNegativeButton("No", DialogInterface.OnClickListener { dialog, id ->
+                    dialog.cancel()
                 })
             val alert = dialogBuilder.create()
             alert.setTitle("Deleting an exercise category")
@@ -136,16 +139,19 @@ class DescriptionExerciseFragment : Fragment() {
                 dialogBuilder.setMessage("Are you sure you want to update a category?")
                     .setIcon(R.drawable.editmenuicon)
                     .setCancelable(false)
-                    .setPositiveButton("Yes", DialogInterface.OnClickListener {
-                            dialog, id ->
+                    .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, id ->
                         viewmodel.updateExercise(exercise)
                         DynamicToast
-                            .makeSuccess(requireContext(), "Exercise category ${et_name_on_edit.text.toString()} updated", Toast.LENGTH_SHORT)
-                            .show();
+                            .makeSuccess(
+                                requireContext(),
+                                "Exercise category ${et_name_on_edit.text} updated",
+                                Toast.LENGTH_SHORT
+                            )
+                            .show()
                         pressedBackBtn()
                     })
-                    .setNegativeButton("No", DialogInterface.OnClickListener {
-                            dialog, id -> dialog.cancel()
+                    .setNegativeButton("No", DialogInterface.OnClickListener { dialog, id ->
+                        dialog.cancel()
                     })
                 val alert = dialogBuilder.create()
                 alert.setTitle("Updating an exercise category")

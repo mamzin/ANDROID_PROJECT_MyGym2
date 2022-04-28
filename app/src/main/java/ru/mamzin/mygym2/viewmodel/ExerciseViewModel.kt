@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import ru.mamzin.mygym2.database.AppDataBase
 import ru.mamzin.mygym2.model.Exercise
 
-class ExerciseViewModel (application: Application): AndroidViewModel(application) {
+class ExerciseViewModel(application: Application) : AndroidViewModel(application) {
 
     val allExercise: LiveData<MutableList<Exercise>>
     private val repository: ExerciseRepository

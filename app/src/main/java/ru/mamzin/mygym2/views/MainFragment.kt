@@ -10,10 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import ru.mamzin.mygym2.R
-import ru.mamzin.mygym2.model.ExerciseDataAdapter
 import ru.mamzin.mygym2.model.Exercise
+import ru.mamzin.mygym2.model.ExerciseDataAdapter
+import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 
 class MainFragment : Fragment(), ExerciseDataAdapter.CellClickListener {
 

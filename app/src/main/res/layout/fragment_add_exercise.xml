@@ -14,16 +14,13 @@
 
         <TextView
             android:id="@+id/tv_name_add"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/name_exercise"
-            android:minHeight="48dp"
-            android:textColorHint="#757575"
-            android:textSize="24sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/excercise"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/et_session"

@@ -1,7 +1,6 @@
 package ru.mamzin.mygym2.views
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import ru.mamzin.mygym2.R
@@ -69,7 +69,7 @@ class AddExerciseFragment : Fragment() {
 
         parentFragmentManager.setFragmentResultListener("exercise_add", this) { key, bundle ->
             id_category = bundle.getSerializable("id_add") as UUID
-            tv_name_add.setText(bundle.getString("name_add"))
+            tv_name_add.text = bundle.getString("name_add")
         }
 
         btn_save_repeat.setOnClickListener {
@@ -91,8 +91,12 @@ class AddExerciseFragment : Fragment() {
                 )
                 viewmodel.addRecurrence(recurrence)
                 DynamicToast
-                    .makeSuccess(requireContext(), "Exercise session of ${tv_name_add.text.toString()} saved", Toast.LENGTH_SHORT)
-                    .show();
+                    .makeSuccess(
+                        requireContext(),
+                        "Exercise session of ${tv_name_add.text} saved",
+                        Toast.LENGTH_SHORT
+                    )
+                    .show()
                 pressedBackBtn()
             }
         }

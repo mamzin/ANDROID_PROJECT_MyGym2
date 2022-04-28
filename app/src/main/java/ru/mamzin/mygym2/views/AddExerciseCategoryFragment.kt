@@ -20,9 +20,9 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
-import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import ru.mamzin.mygym2.R
 import ru.mamzin.mygym2.model.Exercise
+import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import java.util.*
 
 class AddExerciseCategoryFragment : Fragment() {
@@ -97,8 +97,12 @@ class AddExerciseCategoryFragment : Fragment() {
                 )
                 viewmodel.addExercise(exercise)
                 DynamicToast
-                    .makeSuccess(requireContext(), "Exercise category ${et_name_on_add.text.toString()} saved", Toast.LENGTH_SHORT)
-                    .show();
+                    .makeSuccess(
+                        requireContext(),
+                        "Exercise category ${et_name_on_add.text} saved",
+                        Toast.LENGTH_SHORT
+                    )
+                    .show()
                 pressedBackBtn()
             }
         }

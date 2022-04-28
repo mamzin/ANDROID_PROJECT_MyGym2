@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.exercise_item.view.*
 import ru.mamzin.mygym2.R
 
-class ExerciseDataAdapter(private val context: Context,
-                          private val cellClickListener: CellClickListener) :
+class ExerciseDataAdapter(
+    private val context: Context,
+    private val cellClickListener: CellClickListener
+) :
     RecyclerView.Adapter<ExerciseDataAdapter.ViewHolder>() {
 
-    private  val exerlist = ArrayList<Exercise>()
+    private val exerlist = ArrayList<Exercise>()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = exerlist[position]
@@ -27,7 +29,7 @@ class ExerciseDataAdapter(private val context: Context,
         }
     }
 
-    fun updateList(newList: List<Exercise>){
+    fun updateList(newList: List<Exercise>) {
         exerlist.clear()
         exerlist.addAll(newList)
         notifyDataSetChanged()

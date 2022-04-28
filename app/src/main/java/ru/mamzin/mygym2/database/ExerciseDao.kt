@@ -3,7 +3,6 @@ package ru.mamzin.mygym2.database
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import ru.mamzin.mygym2.model.Exercise
-import java.util.*
 
 @Dao
 interface ExerciseDao {

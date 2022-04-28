@@ -3,7 +3,6 @@ package ru.mamzin.mygym2.viewmodel
 import androidx.lifecycle.LiveData
 import ru.mamzin.mygym2.database.ExerciseDao
 import ru.mamzin.mygym2.model.Exercise
-import java.util.*
 
 class ExerciseRepository(private val exerciseDao: ExerciseDao) {
 
@@ -13,11 +12,11 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao) {
         exerciseDao.addExercise(exercise)
     }
 
-    suspend fun delete(exercise: Exercise){
+    suspend fun delete(exercise: Exercise) {
         exerciseDao.deleteExercise(exercise)
     }
 
-    suspend fun update(exercise: Exercise){
+    suspend fun update(exercise: Exercise) {
         exerciseDao.updateExercise(exercise)
     }
 }
