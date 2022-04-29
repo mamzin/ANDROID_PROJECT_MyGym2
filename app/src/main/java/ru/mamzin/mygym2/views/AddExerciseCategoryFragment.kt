@@ -2,6 +2,7 @@ package ru.mamzin.mygym2.views
 
 import android.app.Activity
 import android.content.Intent
+import android.content.Intent.ACTION_PICK
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
@@ -41,7 +42,11 @@ class AddExerciseCategoryFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
-                iv_photo.setImageBitmap(data?.extras?.get("data") as Bitmap)
+                val requestCode = result.data?.getIntExtra("IMG_EXIST", 10)
+                when (requestCode) {
+                    100 -> {iv_photo.setImageURI(data?.data)}
+                    101 -> {iv_photo.setImageBitmap(data?.extras?.get("data") as Bitmap)}
+                }
             }
         }
 
@@ -75,7 +80,8 @@ class AddExerciseCategoryFragment : Fragment() {
         et_description_on_add = root.findViewById(R.id.et_description_on_add)
 
         btn_get_photo.setOnClickListener {
-            val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            val callCameraIntent = Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            callCameraIntent.putExtra("IMG_EXIST", 101)
             resultLauncher.launch(callCameraIntent)
         }
 

@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val homeFragment = MainFragment()
-    lateinit var viewmodel: ExerciseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadFragment(itemId: Int) {
         val tag = itemId.toString()
-        var fragment = supportFragmentManager.findFragmentByTag(tag) ?: when (itemId) {
+        val fragment = supportFragmentManager.findFragmentByTag(tag) ?: when (itemId) {
             R.id.menu_add_category -> {
                 AddExerciseCategoryFragment.newInstance()
             }
