@@ -6,6 +6,7 @@ import android.content.Intent.ACTION_PICK
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,10 +43,11 @@ class AddExerciseCategoryFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
-                val requestCode = result.data?.getIntExtra("IMG_EXIST", 10)
-                when (requestCode) {
-                    100 -> {iv_photo.setImageURI(data?.data)}
-                    101 -> {iv_photo.setImageBitmap(data?.extras?.get("data") as Bitmap)}
+                if (data?.extras?.get("data") != null) {
+                    iv_photo.setImageBitmap(data.extras?.get("data") as Bitmap)
+                }
+                else {
+                    iv_photo.setImageURI(data?.data)
                 }
             }
         }
@@ -67,6 +69,16 @@ class AddExerciseCategoryFragment : Fragment() {
             .commit()
     }
 
+    private fun getPhotoFromURI() {
+        val callUriIntent = Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        resultLauncher.launch(callUriIntent)
+    }
+
+    private fun getPhotoFromCamera() {
+        val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        resultLauncher.launch(callCameraIntent)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -80,9 +92,17 @@ class AddExerciseCategoryFragment : Fragment() {
         et_description_on_add = root.findViewById(R.id.et_description_on_add)
 
         btn_get_photo.setOnClickListener {
-            val callCameraIntent = Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            callCameraIntent.putExtra("IMG_EXIST", 101)
-            resultLauncher.launch(callCameraIntent)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Add image for exercise category")
+            val choice = arrayOf("Make new photo from camera", "Choose existing image from gallery")
+            builder.setItems(choice) { dialog, which ->
+                when (which) {
+                    0 -> { getPhotoFromCamera() }
+                    1 -> { getPhotoFromURI() }
+                }
+            }
+            val dialog = builder.create()
+            dialog.show()
         }
 
         btn_save_on_add.setOnClickListener {

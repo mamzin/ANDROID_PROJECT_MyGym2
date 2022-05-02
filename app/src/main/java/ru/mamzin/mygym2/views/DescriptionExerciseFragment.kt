@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -39,11 +40,16 @@ class DescriptionExerciseFragment : Fragment() {
     val viewmodel: ExerciseViewModel by viewModels()
     private lateinit var id: UUID
 
-    var resultLauncher =
+    private var resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
-                iv_photo_on_edit.setImageBitmap(data?.extras?.get("data") as Bitmap)
+                if (data?.extras?.get("data") != null) {
+                    iv_photo_on_edit.setImageBitmap(data.extras?.get("data") as Bitmap)
+                }
+                else {
+                    iv_photo_on_edit.setImageURI(data?.data)
+                }
             }
         }
 
@@ -65,6 +71,17 @@ class DescriptionExerciseFragment : Fragment() {
             .commit()
     }
 
+
+    private fun getPhotoFromURI() {
+        val callUriIntent = Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        resultLauncher.launch(callUriIntent)
+    }
+
+    private fun getPhotoFromCamera() {
+        val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        resultLauncher.launch(callCameraIntent)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -79,8 +96,17 @@ class DescriptionExerciseFragment : Fragment() {
         btn_delete_exercise_category = root.findViewById(R.id.btn_delete_exercise_category)
 
         btn_get_photo_on_edit.setOnClickListener {
-            val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            resultLauncher.launch(callCameraIntent)
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Add image for exercise category")
+            val choice = arrayOf("Make new photo from camera", "Choose existing image from gallery")
+            builder.setItems(choice) { dialog, which ->
+                when (which) {
+                    0 -> { getPhotoFromCamera() }
+                    1 -> { getPhotoFromURI() }
+                }
+            }
+            val dialog = builder.create()
+            dialog.show()
         }
 
         parentFragmentManager.setFragmentResultListener("exercisedata", this) { key, bundle ->

@@ -50,8 +50,6 @@
                 android:layout_height="300dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/photoplace"
-                android:cropToPadding="true"
-                android:scaleType="fitXY"
                 android:visibility="visible"
                 app:srcCompat="@drawable/iconcamera250" />
 
