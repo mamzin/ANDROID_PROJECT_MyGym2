@@ -60,6 +60,7 @@ class MainFragment : Fragment(), ExerciseDataAdapter.CellClickListener {
         parentFragmentManager.setFragmentResult("exercisedata", bundle)
         requireActivity().supportFragmentManager
             .beginTransaction()
+            .setCustomAnimations(R.anim.slide_in, R.anim.fade_out)
             .replace(R.id.mainframelayout, DescriptionExerciseFragment.newInstance())
             .commit()
     }
@@ -71,6 +72,7 @@ class MainFragment : Fragment(), ExerciseDataAdapter.CellClickListener {
         parentFragmentManager.setFragmentResult("exercise_add", bundle)
         requireActivity().supportFragmentManager
             .beginTransaction()
+            .setCustomAnimations(R.anim.slide_in, R.anim.fade_out)
             .replace(R.id.mainframelayout, AddExerciseFragment.newInstance())
             .commit()
     }

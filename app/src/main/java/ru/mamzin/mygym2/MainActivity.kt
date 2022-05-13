@@ -6,7 +6,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import ru.mamzin.mygym2.databinding.ActivityMainBinding
-import ru.mamzin.mygym2.viewmodel.ExerciseViewModel
 import ru.mamzin.mygym2.views.AboutFragment
 import ru.mamzin.mygym2.views.AddExerciseCategoryFragment
 import ru.mamzin.mygym2.views.MainFragment
@@ -42,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_home -> {
                 supportFragmentManager
                     .beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in, R.anim.fade_out)
                     .replace(R.id.mainframelayout, homeFragment)
                     .commit()
             }
@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
         if (fragment != null) {
             supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_in_right)
                 .replace(R.id.mainframelayout, fragment, tag)
                 .commit()
         }
