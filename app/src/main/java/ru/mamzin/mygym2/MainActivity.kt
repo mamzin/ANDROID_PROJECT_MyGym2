@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_home -> {
                 supportFragmentManager
                     .beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in, R.anim.fade_out)
+                    .setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
                     .replace(R.id.mainframelayout, homeFragment)
                     .commit()
             }
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         if (fragment != null) {
             supportFragmentManager
                 .beginTransaction()
-                .setCustomAnimations(R.animator.slide_in_left, R.animator.slide_in_right)
+                .setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
                 .replace(R.id.mainframelayout, fragment, tag)
                 .commit()
         }

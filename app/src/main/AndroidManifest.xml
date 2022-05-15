@@ -4,7 +4,7 @@
 
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28"/>
+        android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -14,18 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyGym2">
         <activity
-            android:name=".MainActivity"
-            android:configChanges="orientation"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:name=".views.SplashScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
