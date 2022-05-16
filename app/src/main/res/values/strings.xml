@@ -22,5 +22,6 @@
     <string name="example_date">Date?</string>
     <string name="to_home">to_home</string>
     <string name="space">" "</string>
+    <string name="logo">logo</string>
 
 </resources>

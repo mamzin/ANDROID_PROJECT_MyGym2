@@ -15,8 +15,10 @@
         android:theme="@style/Theme.MyGym2">
         <activity
             android:name=".views.SplashScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:exported="true">
+            android:theme="@style/Theme.Splash"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
